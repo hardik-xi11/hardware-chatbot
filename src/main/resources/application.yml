@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: hardware
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hardware
+    username: admin
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  ai:
+    google:
+      genai:
+        api-key: ${GOOGLE_GENAI_API_KEY}
+        chat:
+          options:
+            model: gemini-2.5-flash
+        embedding:
+          api-key: ${GOOGLE_GENAI_API_KEY}
+          text:
+            options:
+              model: text-embedding-004
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+server:
+  port: 8000
